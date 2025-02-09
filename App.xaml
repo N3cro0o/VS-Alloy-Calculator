@@ -1,0 +1,18 @@
+﻿<Application x:Class="Alloy_Calc.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Alloy_Calc"
+             xmlns:viewModel="clr-namespace:Alloy_Calc.MVVM.ViewModel"
+             xmlns:view="clr-namespace:Alloy_Calc.MVVM.View">
+    <Application.Resources>
+
+        <DataTemplate DataType="{x:Type viewModel:HomeVM}">
+            <view:HomeView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:TinBronzeVM}">
+            <view:TinBronzeV/>
+        </DataTemplate>
+
+    </Application.Resources>
+</Application>
