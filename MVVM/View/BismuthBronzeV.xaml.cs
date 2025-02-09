@@ -4,19 +4,21 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
+
 namespace Alloy_Calc.MVVM.View
 {
     /// <summary>
-    /// Logika interakcji dla klasy UserControl1.xaml
+    /// Logika interakcji dla klasy BismuthBronzeV.xaml
     /// </summary>
-    public partial class TinBronzeV : UserControl
+    public partial class BismuthBronzeV : UserControl
     {
         [GeneratedRegex(@"[^0-9]+")]
         private static partial Regex _regex();
-        int _tin = 8;
+        int _zinc = 20;
+        int _bismuth = 10;
         int _ingots = 5;
 
-        public TinBronzeV()
+        public BismuthBronzeV()
         {
             InitializeComponent();
             updateAnswer();
@@ -25,19 +27,30 @@ namespace Alloy_Calc.MVVM.View
         private void updateAnswer()
         {
             int units = _ingots * 100;
-            int tin = (units * _tin / 100);
-            int copper = units - tin;
+            int zinc = (units * _zinc / 100);
+            int bismuth = (units * _bismuth / 100);
+            int copper = units - zinc - bismuth;
 
             CopperBlock.Text = $"Copper units: {copper}";
             CopperBlock.ToolTip = $"Minimum nuggets: {double.Ceiling((double)copper / 5)}";
-            TinBlock.Text = $"Tin units: {tin}";
-            TinBlock.ToolTip = $"Minimum nuggets: {double.Ceiling((double)tin / 5)}";
+            ZincBlock.Text = $"Zinc units: {zinc}";
+            ZincBlock.ToolTip = $"Minimum nuggets: {double.Ceiling((double)zinc / 5)}";
+            BismuthBlock.Text = $"Bismuth units: {bismuth}";
+            BismuthBlock.ToolTip = $"Minimum nuggets: {double.Ceiling((double)bismuth / 5)}";
         }
 
-        private void ProportionChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        private void ZincProportionChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            _tin = (int)e.NewValue;
-            TinPercentBlock.Text = $"Tin ({_tin}%)";
+            _zinc = (int)e.NewValue;
+            ZincPercentBlock.Text = $"Zinc ({_zinc}%)";
+            if (IsInitialized)
+                updateAnswer();
+        }
+        
+        private void BismuthProportionChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            _bismuth = (int)e.NewValue;
+            BismuthPercentBlock.Text = $"Bismuth ({_bismuth}%)";
             if (IsInitialized)
                 updateAnswer();
         }
@@ -46,11 +59,11 @@ namespace Alloy_Calc.MVVM.View
         {
             Debug.Print(e.Text);
             e.Handled = _regex().IsMatch(e.Text);
-            if (e.Handled) 
+            if (e.Handled)
             {
                 if (sender is TextBox box && !string.IsNullOrEmpty(box.Text))
                     _ingots = int.Parse(box.Text);
-                else 
+                else
                     _ingots = 5;
             }
             if (IsInitialized)

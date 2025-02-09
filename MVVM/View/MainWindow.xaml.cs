@@ -19,6 +19,7 @@ namespace Alloy_Calc.MVVM.View
         public MainWindow()
         {
             InitializeComponent();
+            VersionLabel.Content = App.Version;
         }
     }
 }

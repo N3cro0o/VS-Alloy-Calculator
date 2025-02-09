@@ -14,5 +14,13 @@
             <view:TinBronzeV/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewModel:BismuthBronzeVM}">
+            <view:BismuthBronzeV/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModel:BlackBronzeVM}">
+            <view:BlackBronzeV/>
+        </DataTemplate>
+
     </Application.Resources>
 </Application>

@@ -21,12 +21,16 @@ namespace Alloy_Calc.MVVM.ViewModel
 
         public RelayCommand NavigateHomeCom { get; set; }
         public RelayCommand NavigateTinBronzeCom { get; set; }
+        public RelayCommand NavigateBismuthBronzeCom { get; set; }
+        public RelayCommand NavigateBlackBronzeCom { get; set; }
 
         public MainWindowVM(INavService navService)
         {
             Navigation = navService;
             NavigateHomeCom = new RelayCommand(o => { Navigation.NavigateTo<HomeVM>(); }, o => true);
             NavigateTinBronzeCom = new RelayCommand(o => { Navigation.NavigateTo<TinBronzeVM>(); }, o => true);
+            NavigateBismuthBronzeCom = new RelayCommand(o => { Navigation.NavigateTo<BismuthBronzeVM>(); }, o => true);
+            NavigateBlackBronzeCom = new RelayCommand(o => { Navigation.NavigateTo<BlackBronzeVM>(); }, o => true);
 
             NavigateHomeCom.Execute(null);
         }

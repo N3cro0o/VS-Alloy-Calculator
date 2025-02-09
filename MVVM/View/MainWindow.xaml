@@ -7,25 +7,46 @@
         mc:Ignorable="d"
         Title="VS Alloy Calculator" Height="480" Width="640"
         ResizeMode="NoResize"
-        Background="#00ffff">
+        >
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition x:Name="MainRow"/>
+        </Grid.RowDefinitions>
 
-        <StackPanel Grid.Column="0">
-            <Button Content="Home"
+        <!--App menu-->
+        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                   Background="#202020">
+            <Menu Background="#262626" Margin="3">
+            </Menu>
+        </DockPanel>
+
+        <DockPanel LastChildFill="False" Grid.Column="0" Grid.Row="1" Background="#2b2b2b">
+            <StackPanel DockPanel.Dock="Top">
+                <Button Content="Home"
                     Height="30"
                     Command="{Binding NavigateHomeCom}"/>
-            <Button Content="Tin Bronze"
+                <Button Content="Tin Bronze"
                     Height="30"
                     Command="{Binding NavigateTinBronzeCom}"/>
-        </StackPanel>
+                <Button Content="Bismuth Bronze"
+                    Height="30"
+                    Command="{Binding NavigateBismuthBronzeCom}"/>
+                <Button Content="Black Bronze"
+                    Height="30"
+                    Command="{Binding NavigateBlackBronzeCom}"/>
 
-        <ContentControl Grid.Column="1" 
+            </StackPanel>
+            <Label DockPanel.Dock="Bottom" FontSize="8" Foreground="#ababab" x:Name="VersionLabel">
+                v.2137
+            </Label>
+        </DockPanel>
+        <ContentControl Grid.Column="1" Grid.Row="1" 
                         Content="{Binding Navigation.CurrView}">
-            
         </ContentControl>
     </Grid>
 </Window>
