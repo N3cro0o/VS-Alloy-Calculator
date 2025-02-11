@@ -1,9 +1,8 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Windows;
+﻿using System.Windows;
 using Alloy_Calc.Core;
 using Alloy_Calc.MVVM.View;
 using Alloy_Calc.MVVM.ViewModel;
+using Alloy_Calc.MVVM.ViewModel.Alloys;
 using Alloy_Calc.Services;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,11 +10,12 @@ namespace Alloy_Calc
 {
     /// <summary>
     /// Interaction logic for App.xaml
+    /// https://github.com/N3cro0o/VS-Alloy-Calculator
     /// </summary>
     public partial class App : Application
     {
         private readonly ServiceProvider _serviceProvider;
-        public static string Version = "v.0.1";
+        public static string Version = "v 0.1.1";
 
         public App()
         {
@@ -25,6 +25,7 @@ namespace Alloy_Calc
             services.AddSingleton<TinBronzeVM>();
             services.AddSingleton<BismuthBronzeVM>();
             services.AddSingleton<BlackBronzeVM>();
+            services.AddSingleton<AllAlloysVM>();
             services.AddSingleton<MainWindow>(ServiceProvider => new MainWindow
             {
                 DataContext = ServiceProvider.GetRequiredService<MainWindowVM>()

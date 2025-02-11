@@ -30,7 +30,6 @@ namespace Alloy_Calc.Services
         {
             ViewModelBase VM = _viewModelFactory.Invoke(typeof(T));
             CurrView = VM;
-
         }
     }
 }

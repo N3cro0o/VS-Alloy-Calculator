@@ -7,9 +7,11 @@
         mc:Ignorable="d"
         Title="VS Alloy Calculator" Height="480" Width="640"
         ResizeMode="NoResize"
+        MouseMove="OnMouseMove"
         >
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0"/>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -17,15 +19,20 @@
             <RowDefinition Height="30"/>
             <RowDefinition x:Name="MainRow"/>
         </Grid.RowDefinitions>
-
+        
+        <ContentControl Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" 
+                        Content="{Binding Navigation.CurrView}">
+        </ContentControl>
         <!--App menu-->
-        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+        <DockPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"
                    Background="#202020">
-            <Menu Background="#262626" Margin="3">
-            </Menu>
+            <ToggleButton Content="Toggle Menu" Margin="5,2,5,2" Click="ToggleLeftMenu_Click"
+                          x:Name="LeftMenuToggleButton"/>
+            <TextBlock/>
         </DockPanel>
 
-        <DockPanel LastChildFill="False" Grid.Column="0" Grid.Row="1" Background="#2b2b2b">
+        <DockPanel LastChildFill="False" Grid.Column="0" Grid.Row="1"
+                   Background="#2b2b2b" Grid.ColumnSpan="1" x:Name="LeftMenu">
             <StackPanel DockPanel.Dock="Top">
                 <Button Content="Home"
                     Height="30"
@@ -45,8 +52,5 @@
                 v.2137
             </Label>
         </DockPanel>
-        <ContentControl Grid.Column="1" Grid.Row="1" 
-                        Content="{Binding Navigation.CurrView}">
-        </ContentControl>
     </Grid>
 </Window>

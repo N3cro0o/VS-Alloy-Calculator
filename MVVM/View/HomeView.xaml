@@ -8,13 +8,41 @@
              d:DesignHeight="450" d:DesignWidth="800"
              Background="#434343">
     <Grid>
-        <TextBlock TextWrapping="Wrap" Foreground="#f3f3f3" FontSize="16"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
+        <DockPanel>
+            <TextBlock TextWrapping="Wrap" Foreground="#f3f3f3" FontSize="16"
+                   HorizontalAlignment="Center" DockPanel.Dock="Top" Margin="0,25,0,10"
                    TextAlignment ="Center">
-            <Run Text="Shalom!" FontSize="24"/>
+            <Run Text="Welcome to Vintage Story Alloy Calculator!" FontSize="24"/>
             <LineBreak/>
             <LineBreak/>
-            Please select one of the options options!
-        </TextBlock>
+            Please select one of the options!
+            </TextBlock>
+            <WrapPanel DockPanel.Dock="Bottom" Margin="20" Background="#535353" HorizontalAlignment="Center">
+                <Button Height="25" Width="110" Margin="10" Command="{Binding NavigateTinBronzeCom}">
+                    <TextBlock TextWrapping="Wrap">
+                        Tin bronze
+                    </TextBlock>
+                </Button>
+
+                <Button Height="25" Width="110" Margin="10" Command="{Binding NavigateBismuthBronzeCom}">
+                    <TextBlock TextWrapping="Wrap">
+                        Bismuth brozne
+                    </TextBlock>
+                </Button>
+
+                <Button Height="25" Width="110" Margin="10" Command="{Binding NavigateBlackBronzeCom}">
+                    <TextBlock TextWrapping="Wrap">
+                        Black bronze
+                    </TextBlock>
+                </Button>
+
+                <Button Height="25" Width="110" Margin="10" Command="{Binding NavigateAlloyScreenCom}">
+                    <TextBlock TextWrapping="Wrap">
+                        Other alloys
+                    </TextBlock>
+                </Button>
+
+            </WrapPanel>
+        </DockPanel>
     </Grid>
 </UserControl>

@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Alloy_Calc"
              xmlns:viewModel="clr-namespace:Alloy_Calc.MVVM.ViewModel"
-             xmlns:view="clr-namespace:Alloy_Calc.MVVM.View">
+             xmlns:viewModelAlloys="clr-namespace:Alloy_Calc.MVVM.ViewModel.Alloys"
+             xmlns:view="clr-namespace:Alloy_Calc.MVVM.View"
+             xmlns:viewAlloys="clr-namespace:Alloy_Calc.MVVM.View.Alloys">
     <Application.Resources>
 
         <DataTemplate DataType="{x:Type viewModel:HomeVM}">
@@ -20,6 +22,10 @@
 
         <DataTemplate DataType="{x:Type viewModel:BlackBronzeVM}">
             <view:BlackBronzeV/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewModelAlloys:AllAlloysVM}">
+            <viewAlloys:AllAlloysV/>
         </DataTemplate>
 
     </Application.Resources>

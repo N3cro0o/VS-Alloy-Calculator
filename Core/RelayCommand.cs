@@ -16,11 +16,19 @@ namespace Alloy_Calc.Core
             add => CommandManager.RequerySuggested += value;
             remove => CommandManager.RequerySuggested -= value;
         }
-
-        public RelayCommand(Action<object> execute, Predicate<object> canExecute)
+        private string? _name;
+        public string? Name
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(_name) ? _name : "default";
+            }
+        }
+        public RelayCommand(Action<object> execute, Predicate<object> canExecute, string? name = "")
         {
             _execute = execute;
             _canExecute = canExecute;
+            _name = name;
         }
 
         public bool CanExecute(object? parameter)
