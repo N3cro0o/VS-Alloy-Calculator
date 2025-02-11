@@ -21,6 +21,7 @@
         </Grid.RowDefinitions>
         
         <ContentControl Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" 
+                        MouseLeftButtonDown="OnUserControllMouseLeftClick"
                         Content="{Binding Navigation.CurrView}">
         </ContentControl>
         <!--App menu-->

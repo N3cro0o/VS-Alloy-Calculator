@@ -15,7 +15,7 @@ namespace Alloy_Calc
     public partial class App : Application
     {
         private readonly ServiceProvider _serviceProvider;
-        public static string Version = "v 0.1.1";
+        public static string Version = "v 0.2";
 
         public App()
         {
@@ -26,6 +26,7 @@ namespace Alloy_Calc
             services.AddSingleton<BismuthBronzeVM>();
             services.AddSingleton<BlackBronzeVM>();
             services.AddSingleton<AllAlloysVM>();
+            services.AddSingleton<Alloy2MetalsVM>();
             services.AddSingleton<MainWindow>(ServiceProvider => new MainWindow
             {
                 DataContext = ServiceProvider.GetRequiredService<MainWindowVM>()

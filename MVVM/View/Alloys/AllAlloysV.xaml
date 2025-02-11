@@ -17,9 +17,8 @@
             Alloy Page
         </TextBlock>
 
-        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled"
-                      Margin="20">
-            <StackPanel x:Name="ButtonPanel"/>
-        </ScrollViewer>
+        <WrapPanel x:Name="ButtonPanel" Orientation="Horizontal" Margin="15"
+                      Grid.Row="1"/>
+
     </Grid>
 </UserControl>

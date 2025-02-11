@@ -28,5 +28,9 @@
             <viewAlloys:AllAlloysV/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type viewModelAlloys:Alloy2MetalsVM}">
+            <viewAlloys:Alloy2MetalsV/>
+        </DataTemplate>
+
     </Application.Resources>
 </Application>

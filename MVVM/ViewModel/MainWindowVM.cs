@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Alloy_Calc.Core;
+using Alloy_Calc.MVVM.View;
 using Alloy_Calc.Services;
 
 namespace Alloy_Calc.MVVM.ViewModel
@@ -33,6 +34,10 @@ namespace Alloy_Calc.MVVM.ViewModel
             NavigateBlackBronzeCom = new RelayCommand(o => { Navigation.NavigateTo<BlackBronzeVM>(); }, o => true);
 
             NavigateHomeCom.Execute(null);
+
+            // Subscribe MainWindow to the Navigation PropertyChanged event
+            MainWindow window = (MainWindow)App.Current.MainWindow;
+            ((NavService)Navigation).PropertyChanged += window.OnNavigationPropertyChanged;
         }
     }
 }
